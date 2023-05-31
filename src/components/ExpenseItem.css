@@ -35,6 +35,16 @@
     border-radius: 12px;
 }
 
+.date{
+    width: 75px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #40005d;
+    border-radius: 10px;
+    text-align:center;
+}
+
 @media (min-width : 580px) {
     .expense-item_description {
         flex-direction: row;
