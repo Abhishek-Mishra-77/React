@@ -34,7 +34,7 @@ function App() {
   ];
 
   return (
-    <div>
+    <div> 
       <h2>Let's get started!</h2>
       {expenses.map((expense) => (
         <ExpenseItem
