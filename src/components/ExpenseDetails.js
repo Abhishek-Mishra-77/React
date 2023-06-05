@@ -5,7 +5,7 @@ function ExpenseDetails(props) {
         <div className="expense-item_description">
             <div className="expense-item_description_title">{props.title}</div>
             <div className="expense-item_description_location">{props.LocationOfExpenditure}</div>
-            <div className="expense-item_description_amount">{props.amount}</div>
+            <div className="expense-item_description_amount">${props.amount}</div>
             
         </div>
     )
