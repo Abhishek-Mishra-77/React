@@ -20,7 +20,6 @@ const ExpenseItem = (props) => {
 
     function deleteExpense(event) {
         const deleteExpense = event.target.parentElement;
-        console.log('lallll')
         deleteExpense.remove()
     }
     return (
