@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import './ExpenseForm.css'
 
-function ExpenseForm() {
-    const [enteredTitle , setEnteredTitle] = useState('');
-    const [enteredAmount ,setEnteredAmount] = useState('');
-    const [enteredDate , setEnteredDate] = useState('');
-
+function ExpenseForm(props) {
+    const [enteredTitle, setEnteredTitle] = useState('');
+    const [enteredAmount, setEnteredAmount] = useState('');
+    const [enteredDate, setEnteredDate] = useState('');
+    const [enteredLocation, setEnteredLocation] = useState('');
     // const [userInput, setUserInput] = useState({
     //     enteredTitle: '',
     //     enteredAmount: '',
@@ -17,9 +17,9 @@ function ExpenseForm() {
 
         // setUserInput({ ...userInput, enteredTitle: event.target.value });`
 
-    //    setUserInput((prevState) => {
-    //      return {...prevState , enteredTitle:event.target.value};
-    //    })
+        //    setUserInput((prevState) => {
+        //      return {...prevState , enteredTitle:event.target.value};
+        //    })
     }
 
     function amountChangeHandler(event) {
@@ -33,7 +33,7 @@ function ExpenseForm() {
     }
 
     function dateChangeHandler(event) {
-        setEnteredDate(event.target.value) 
+        setEnteredDate(event.target.value)
 
         // setUserInput({ ...userInput, enteredDate:event.target.value })
 
@@ -42,30 +42,67 @@ function ExpenseForm() {
         //   })
     }
 
-   function submitHandler(event) {
-    event.preventDefault()
-     const expenseData = {
-        title:enteredTitle,
-        amount : enteredAmount,
-        date:new Date(enteredDate)
-     }
-      console.log(expenseData);
-   }
- 
+    function locationChangeHandler(event) {
+        setEnteredLocation(event.target.value)
+
+        // setUserInput({ ...userInput, enteredLocation:event.target.value })
+
+        // setUserInput((prevState) => {
+        //     return {...prevState , enteredLocation:event.target.value};
+        //   })
+    }
+
+    function submitHandler(event) {
+        event.preventDefault()
+        const expenseData = {
+            title: enteredTitle,
+            amount: enteredAmount,
+            date: new Date(enteredDate),
+            location: enteredLocation
+        }
+        props.onSaveExpenseData(expenseData)
+        setEnteredTitle('');
+        setEnteredAmount('')
+        setEnteredDate('')
+        setEnteredLocation('')
+    }
+
     return (
         <form onSubmit={submitHandler}>
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>Title</label>
-                    <input type="text" onChange={titleChangeHandler} />
+                    <input
+                        type="text"
+                        value={enteredTitle}
+                        onChange={titleChangeHandler}
+                    />
                 </div>
                 <div className="new-expense__control">
                     <label>Amount</label>
-                    <input type="text" onChange={amountChangeHandler} min="0.01" step="0.01" />
+                    <input
+                        type="text"
+                        value={enteredAmount}
+                        onChange={amountChangeHandler}
+                        min="0.01"
+                        step="0.01" />
+                </div>
+                <div className="new-expense__control">
+                    <label>Location</label>
+                    <input
+                        type="location"
+                        value={enteredLocation}
+                        onChange={locationChangeHandler}
+                    />
                 </div>
                 <div className="new-expense__control">
                     <label>Date</label>
-                    <input type="date" onChange={dateChangeHandler} min="2019-01-01" max="2023-12-31" />
+                    <input
+                        type="date"
+                        value={enteredDate}
+                        onChange={dateChangeHandler}
+                        min="2019-01-01"
+                        max="2023-12-31" />
                 </div>
             </div>
 
