@@ -4,7 +4,7 @@ import Card from '../UI/card';
 import './ExpenseItem.css';
 import ExpenseDetails from './ExpenseDetails';
 import DeleteExpenses from "./DeleteExpenses"
-import ExpensesFilter from './ExpsensesFilter';
+
 
 const ExpenseItem = (props) => {
     const [title, setTitle] = useState(props.title);
@@ -25,14 +25,8 @@ const ExpenseItem = (props) => {
         deleteExpense.remove()
     }
 
-    const [filteredYear, setFilteredYear] = useState('2020');
-
-    const filteredChangeHandler = selectedYear => {
-        setFilteredYear(selectedYear);
-    }
     return (
         <Card className="expense-items">
-            <ExpensesFilter selectedYear={filteredYear} onChangeFilter={filteredChangeHandler}></ExpensesFilter>
             <ExpenseDate date={props.date}></ExpenseDate>
             <ExpenseDetails title={title} amount={amount} location={props.location}></ExpenseDetails>
             <DeleteExpenses onClickHandler={deleteExpense} />

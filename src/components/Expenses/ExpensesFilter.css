@@ -1,0 +1,21 @@
+.expense-filter{
+    padding: 0.5rem;
+    background-color: rgb(31,31,31);
+    margin: 1.1rem auto;
+    color: white;
+    width: 49rem;
+
+}
+
+.expense-filter__control select{
+    margin-left: 77%;
+    width: 90px;
+    height: 32px;
+    text-align: center;
+}
+
+.expense-filter__control label{
+    font-weight: bold;
+    margin-left:20px;
+
+}
