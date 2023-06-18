@@ -1,5 +1,7 @@
+import React, { useState } from "react";
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 function App() {
   const expenses = [
     {
@@ -30,11 +32,29 @@ function App() {
       location: 'Mumbai',
       date: new Date(2015, 4, 16)
     }
-
   ]
+
+  //  return React.createElement(
+  //     'div',
+  //     {},
+  //     React.createElement('h2' , {} , "Let's get started!rrr"),
+  //     React.createElement(Expenses , {items:expenses} ),
+  //     React.createElement("div" , {} , "golfdjnjffndsjfsdjfnju")
+  //  )
+
+  const [addData , addNewData] = useState(expenses);
+    
+   const addExpenseHandler = (expense) => {
+      addNewData([...addData , expense])
+   }
+
+  
+
+
   return (
     <div>
-      <Expenses items={expenses}></Expenses>
+      <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
+      <Expenses items={addData}></Expenses>
     </div>
   )
 }
