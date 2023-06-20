@@ -6,6 +6,8 @@ function ExpenseForm(props) {
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
     const [enteredLocation, setEnteredLocation] = useState('');
+
+
     // const [userInput, setUserInput] = useState({
     //     enteredTitle: '',
     //     enteredAmount: '',
@@ -44,7 +46,6 @@ function ExpenseForm(props) {
 
     function locationChangeHandler(event) {
         setEnteredLocation(event.target.value)
-
         // setUserInput({ ...userInput, enteredLocation:event.target.value })
 
         // setUserInput((prevState) => {
@@ -66,6 +67,9 @@ function ExpenseForm(props) {
         setEnteredDate('')
         setEnteredLocation('')
     }
+
+
+
 
     return (
         <form onSubmit={submitHandler}>
@@ -107,9 +111,9 @@ function ExpenseForm(props) {
             </div>
 
             <div className="new-expense__actions">
+                <button onClick={props.onCancel}>Cancel</button>
                 <button type="submit">Add Expense</button>
             </div>
-
         </form>
     )
 }
