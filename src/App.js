@@ -29,7 +29,7 @@ const INITIAL_EXPENSES = [
     title: 'Education', amount: 305.22,
     amount: 120.26,
     location: 'Mumbai',
-    date: new Date(2015, 4, 16)
+    date: new Date(2022, 4, 16)
   }
 ]
 
