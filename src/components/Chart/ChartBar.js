@@ -8,9 +8,6 @@ const ChartBar = (props) => {
         barFillHeight = Math.round((props.value / props.maxValue) * 100) + '%';
     }
 
-    console.log(barFillHeight)
-    console.log(props.maxValue)
-
     return (
         <div className="chart-bar">
             <div className="chart-bar__inner">
